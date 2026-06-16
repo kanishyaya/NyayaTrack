@@ -1,0 +1,132 @@
+.calendar-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  align-items: start;
+}
+
+.calendar-card { padding: 20px; }
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cal-month {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--primary);
+}
+
+.cal-nav {
+  background: none;
+  font-size: 24px;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+.cal-nav:hover { background: var(--bg); color: var(--primary); }
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cal-day-label {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  padding: 6px 0;
+}
+
+.cal-cell {
+  min-height: 70px;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.12s;
+  position: relative;
+}
+
+.cal-cell:not(.empty):hover { background: #f8f7f3; }
+
+.cal-cell.empty { background: transparent; }
+
+.cal-date {
+  font-size: 13px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cal-cell.today .cal-date {
+  background: var(--primary);
+  color: white;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.cal-cell.has-hearings { background: #fff8f0; }
+
+.cal-event {
+  background: var(--accent);
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cal-event.priority-high { background: #c62828; }
+.cal-event.priority-medium { background: var(--accent); }
+.cal-event.priority-low { background: #2e7d32; }
+
+/* Upcoming panel */
+.upcoming-card {}
+
+.upcoming-hearing-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+}
+.upcoming-hearing-card:hover { border-color: var(--primary); background: #f5f4f0; }
+
+.uh-date {
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  padding: 6px 10px;
+  text-align: center;
+  flex-shrink: 0;
+  min-width: 44px;
+}
+.uh-day { font-size: 20px; font-weight: 700; line-height: 1; }
+.uh-month { font-size: 10px; text-transform: uppercase; opacity: 0.8; }
+
+.uh-info { flex: 1; min-width: 0; }
+.uh-title { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.uh-parties { font-size: 11px; color: var(--text); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.uh-court { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.uh-num { font-size: 11px; color: var(--primary); }
+
+@media (max-width: 900px) {
+  .calendar-layout { grid-template-columns: 1fr; }
+}
